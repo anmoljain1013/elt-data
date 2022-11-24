@@ -1,11 +1,11 @@
 import pandas as pd
 import psycopg2
 
-hostname = 'materialisation-dev-1.cia5jb7mksc7.ap-south-1.rds.amazonaws.com'
-database = 'flink_test'
+hostname = 'Hostname'
+database = 'NAME '
 username = 'postgres'
-pwd = 'gdq04SmIFpG4Hro5Od45'
-port_id = '5432'
+pwd = 'PASSWORD'
+port_id = '54'
 
 
 conn = psycopg2.connect (
@@ -29,6 +29,6 @@ print(cursor.rowcount, "Record inserted successfully into tested Expected Views"
 
 
 
-print("oyeeee")
+print("complete")
 
 conn.close()
