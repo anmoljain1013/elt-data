@@ -4,10 +4,10 @@ import time
 from dateutil import parser
 import psycopg2
 import great_expectations as ge
-hostname = 'materialisation-dev-1.cia5jb7mksc7.ap-south-1.rds.amazonaws.com'
-database = 'flink_test'
+hostname = 'HOSTNAME'
+database = 'NAME'
 username = 'postgres'
-pwd = 'gdq04SmIFpG4Hro5Od45'
+pwd = 'PASSWORD'
 port_id = '5432'
 
 
