@@ -37,7 +37,7 @@ def get_flag_epe(eng):
         return 8
 start_time = parser.parse("2022-05-27T00:00:00.000Z") - timedelta(days=7)
 end_time = parser.parse("2022-05-27T00:00:00.000Z") - timedelta(days=180)
-video = pd.read_csv("/home/digimantra/Downloads/validation_data_video_27052022.csv",lineterminator='\n')
+video = pd.read_csv("validation_data_video_27052022.csv",lineterminator='\n')
 df = video.loc[:, ["channelId", "videoId", "videoPublishedAt", "mediaType", "viewCount", "commentCount", "likeCount"]]
 df.dropna(inplace=True)
 df["videoPublishedAt"] = df["videoPublishedAt"].apply(lambda x: parser.parse(x))
@@ -80,7 +80,7 @@ epv_short = df_short[df_short["epv_flag_count"] == df_short["epv_max_count"]].gr
 
 
 
-calculated_data = pd.read_csv("/home/digimantra/Downloads/validation_data_channels_27052022.csv")
+calculated_data = pd.read_csv("validation_data_channels_27052022.csv")
 calculated_data = calculated_data.loc[:, ["channel_id", "expectedViewsShorts", "expectedViewsVideo", "expectedEngagementShorts", "expectedEngagementVideo"]]
 calculated_data["expectedViewsShorts"] = calculated_data["expectedViewsShorts"].apply(lambda x: float(x.replace(",", "")))
 calculated_data["expectedViewsVideo"] = calculated_data["expectedViewsVideo"].apply(lambda x: float(x.replace(",", "")))
@@ -99,4 +99,4 @@ calculated_data["viewsVideoVariancePercent"] = (calculated_data["viewsVideoVaria
 calculated_data["enagagementShortVariancePercent"] = (calculated_data["enagagementShortVariance"] / calculated_data["expectedEngagementShorts"]) * 100
 calculated_data["enagagementVideoVariancePercent"] = (calculated_data["enagagementVideoVariance"] / calculated_data["expectedEngagementVideo"]) * 100
 calculated_data.fillna(0, inplace=True)
-calculated_data.to_csv("/home/digimantra/Downloads/validation_results.csv", index=False)
+calculated_data.to_csv("validation_results.csv", index=False)
